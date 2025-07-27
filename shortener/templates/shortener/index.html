@@ -15,7 +15,7 @@
     <div class="container mt-5 text-center">
         <img src="{% static 'shortener/logo.png' %}" alt="Logo" height="100">
         <h1 class="mb-4 mt-3">🔗 Easy URL Shortener</h1>
-        <form method="post">
+        <form method="post" action="">
             {% csrf_token %}
             <input type="url" name="url" placeholder="Enter URL" required>
             <button type="submit">Shorten</button>

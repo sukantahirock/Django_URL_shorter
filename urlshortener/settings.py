@@ -8,8 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='insecure-key')  # এখন .env file theke nebo
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']  # production e ekhane render er domain diba
+ALLOWED_HOSTS = ['django-url-shorter.onrender.com', 'localhost', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-url-shorter.onrender.com',
+]
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -59,7 +62,9 @@ DATABASES = {
         conn_max_age=600
     )
 }
-
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 # ✅ Password validators
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
