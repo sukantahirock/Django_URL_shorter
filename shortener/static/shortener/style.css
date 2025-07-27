@@ -1,0 +1,12 @@
+body {
+    background: linear-gradient(to right, #d9e4f5, #f5d9e4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input[type="url"] {
+    max-width: 500px;
+    margin: auto;
+}
+footer {
+    font-size: 0.9em;
+    color: #555;
+}
