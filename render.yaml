@@ -1,13 +1,11 @@
 services:
   - type: web
-    name: urlshortener
+    name: django-url-shortener
     env: python
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn urlshortener.wsgi"
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --no-input && python manage.py migrate"
+    startCommand: "gunicorn urlshortener.wsgi:application"
     envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: urlshortener.settings
       - key: SECRET_KEY
-        generateValue: true
-      - key: DEBUG
-        value: False
+        value: your-very-secret-key
+      - key: PYTHON_VERSION
+        value: 3.11
