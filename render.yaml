@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: urlshortener
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn urlshortener.wsgi"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: urlshortener.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
