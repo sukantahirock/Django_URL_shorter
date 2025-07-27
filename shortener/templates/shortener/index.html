@@ -17,9 +17,10 @@
         <h1 class="mb-4 mt-3">🔗 Easy URL Shortener</h1>
         <form method="post">
             {% csrf_token %}
-            <input type="url" name="url" class="form-control mb-3" placeholder="Enter your URL" required>
-            <button class="btn btn-primary">Shorten</button>
+            <input type="url" name="url" placeholder="Enter URL" required>
+            <button type="submit">Shorten</button>
         </form>
+
 
         {% if short_url %}
         <div class="alert alert-success mt-4">
